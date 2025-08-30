@@ -14,6 +14,8 @@ salary=$((salary))
 # Tax logic
 if [ "$salary" -lt 15000 ]; then
     tax=0
+elif [ "$salary" -eq 15000 ]; then
+    tax=$(echo "scale=2; $salary * 0.02" | bc)
 elif [ "$salary" -le 30000 ]; then
     tax=$(echo "scale=2; $salary * 0.05" | bc)
 else
